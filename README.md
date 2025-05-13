@@ -76,10 +76,10 @@ Ensure the following tools are installed:
 
 ```bash
 # Make it executable
-chmod +x TMagen773630.s12.773630.sh
+chmod +x Checker.sh
 
 # Run as root
-sudo ./TMagen773630.s12.773630.sh
+sudo ./Checker.sh
 ```
 
 Follow the prompts:
@@ -121,6 +121,4 @@ This script is intended **strictly for educational use** in isolated or virtual 
 
 ---
 
-**Author**: Isak S.  
-**Project**: TMagen773630 – CyberProject 7  
-**Student Code**: s12
+**Author**: Hadroxx
