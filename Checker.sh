@@ -2,7 +2,7 @@
 
 
 # Projectname and creator:
-# Cyber-Security Project 7: SOC ANALYST | PROJECT: CHECKR
+# Cyber-Security PROJECT: CHECKER
 # Creator of the project: Hadroxx
 
 
