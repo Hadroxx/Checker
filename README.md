@@ -1,85 +1,126 @@
-# SOC Analyst Project: Checker 🔍🛡️
+# Checker – SOC Analyst Offensive Security Script 🛡️
 
-## 📌 Overview
-**Checker** is a bash-based offensive security automation tool designed as part of a SOC Analyst project. It allows the user to simulate three different types of network attacks in a controlled lab environment. Each action is logged and stored for review, supporting cybersecurity education and demonstration.
-
-## ✨ Features
-- ✅ **Root Check & System Prep**  
-  Ensures script is executed with root privileges and offers optional Kali Linux update.
-
-- 🖥️ **Input-Driven Setup**  
-  User provides network range, output directory, and optional wordlists (fallback to `rockyou.txt` if unspecified).
-
-- 🔎 **Nmap Scanning**  
-  Scans a target network and extracts live host IPs.
-
-- 🔐 **Hydra Brute Force Attack**  
-  Performs SSH brute force using supplied or default credentials.
-
-- 🌐 **Hping3 Denial of Service**  
-  Simulates a TCP SYN flood attack in background execution.
-
-- 🕵️ **ARP Spoofing (MITM)**  
-  Enables ARP-based Man-in-the-Middle attack via `arpspoof`.
-
-- 🧭 **Menu-Driven Selection**  
-  Interactive menu to choose attack targets and vectors without restarting the script.
-
-- 📁 **Comprehensive Logging**  
-  All attacks, IPs, and results are logged with timestamps in structured folders.
+Checker is a modular Bash-based attack simulation script designed for educational use in penetration testing labs and SOC analyst training. It allows the user to select and execute network attacks with real-time logging, clear interface prompts, and customizable inputs.
 
 ---
 
-## ⚙️ Requirements
+## 📚 Table of Contents
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Prerequisites](#prerequisites)
+4. [Tested On](#tested-on)
+5. [Usage](#usage)
+6. [Script Workflow](#script-workflow)
 
-- **OS**: Kali Linux
-- **Tools**:
-  - `nmap`
-  - `hydra`
-  - `hping3`
-  - `dsniff` (for `arpspoof`)
-- **Privileges**: Must be run as `root`
+---
+
+## 🧭 Overview
+
+**Checker** automates the following attack types and analysis steps:
+
+- 🔐 **Hydra SSH Brute Force**  
+- 🌐 **Hping3 Denial-of-Service (SYN Flood)**  
+- 🕵️ **ARP Spoofing / MITM using arpspoof**  
+- 🧪 **Nmap-based target discovery**  
+- 📁 **Full output and log storage per session**
+
+Use this script to learn, demo, and document network attack behavior in isolated environments.
+
+---
+
+## ✨ Features
+
+1. **User-Driven Configuration**
+   - Network range selection
+   - Custom output directory
+   - Custom or default credential lists
+
+2. **Nmap Target Discovery**
+   - Discovers live hosts and extracts IPs
+
+3. **Three Modular Attacks**
+   - Brute Force (Hydra)
+   - Denial of Service (Hping3)
+   - ARP Spoofing (Arpspoof)
+
+4. **Menu-Driven Execution**
+   - Pick attack type and target interactively
+
+5. **Structured Logging**
+   - Logs written per attack to organized subfiles
+
+---
+
+## 🔧 Prerequisites
+
+Ensure the following tools are installed:
+
+- `nmap` – host discovery
+- `hydra` – brute force attack engine
+- `hping3` – packet generator / DoS tester
+- `dsniff` – includes `arpspoof`
+- Root permissions required
+
+> All tools are available by default in Kali Linux.
+
+---
+
+## 🖥️ Tested On
+
+- ✅ Kali Linux (rolling)
+- ✅ Ubuntu 22.04 with manual tool install
 
 ---
 
 ## 🚀 Usage
 
 ```bash
-./Checker.sh
+# Make it executable
+chmod +x TMagen773630.s12.773630.sh
+
+# Run as root
+sudo ./TMagen773630.s12.773630.sh
 ```
 
-Follow the on-screen prompts to:
-- Enter a network range to scan
-- Define where to save output
-- Select attacks and targets
+Follow the prompts:
+- Enter your network range (e.g., `192.168.1.0/24`)
+- Choose the output directory
+- Pick credential lists or use defaults
+- Select a discovered IP
+- Choose the attack type
 
 ---
 
-## 📂 Example Output Structure
+## 🔄 Script Workflow
 
-```
-output_directory/
-├── nmap_results.txt
-├── targets.txt
-├── hydra_results.txt
-├── dos_results.txt
-├── arp_results.txt
-├── target.txt
-├── gateway.txt
-└── logfile.txt
-```
+1. **START**
+   - Root check
+   - Keyboard setup
+   - Optional OS update
 
----
+2. **INPUT**
+   - User defines scan range, logs directory, and credential lists
 
-## 🧠 Educational Purpose
+3. **SCAN**
+   - Nmap performs open port discovery and lists live hosts
 
-This script is created for **learning and demonstration** in secure, isolated environments (e.g., VMs). It is **not intended for use on public or unauthorized networks.**
+4. **MENU**
+   - Displays targets, lets user choose attack
 
----
+5. **HYDRA / HPING / ARP**
+   - Performs selected attack and saves logs
 
-## 📄 License
-This project is distributed for educational use only. Use responsibly.
+6. **LOG**
+   - Final log review and directory content listing
 
 ---
 
-Project created by **Hadroxx**
+## ⚠️ Disclaimer
+
+This script is intended **strictly for educational use** in isolated or virtual lab environments. Do not run against networks without explicit permission.
+
+---
+
+**Author**: Isak S.  
+**Project**: TMagen773630 – CyberProject 7  
+**Student Code**: s12
